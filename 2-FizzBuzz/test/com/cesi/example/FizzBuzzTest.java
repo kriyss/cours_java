@@ -28,9 +28,32 @@ public class FizzBuzzTest {
         assertThat(fizzBuzz, 30, is("FizzBuzz"));
     }
 
+    @Test
+    public void should_decorate_basic_input() {
+        String result = fizzBuzz.execute(1, "/");
+        Assert.assertThat(result, is("/1/"));
+    }
+
+    @Test
+    public void should_call_with_array() {
+        String[] result = fizzBuzz.execute(new int[]{1,2,3,4,5,6});
+        Assert.assertThat(result[0], is("1"));
+        Assert.assertThat(result[1], is("2"));
+        Assert.assertThat(result[2], is("Fizz"));
+        Assert.assertThat(result[3], is("4"));
+        Assert.assertThat(result[4], is("Buzz"));
+        Assert.assertThat(result[5], is("Fizz"));
+    }
+
+    @Test
+    public void should_call_with_array_and_decorate() {
+        String[] result = fizzBuzz.execute(new int[]{1,2}, "#");
+        Assert.assertThat(result[0], is("#1#"));
+        Assert.assertThat(result[1], is("#2#"));
+    }
+
     private void assertThat(FizzBuzz fizzBuzz, int i, Matcher<String> fizz) {
         String result = fizzBuzz.execute(i);
         Assert.assertThat(result, fizz);
     }
-
 }

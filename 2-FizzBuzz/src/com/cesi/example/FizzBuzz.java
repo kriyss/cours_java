@@ -10,14 +10,35 @@ public class FizzBuzz {
     }
 
     public String execute(int i) {
+        return execute(i, "");
+    }
+
+    public String[] execute(int[] ints, String decorator) {
+        String[] result = new String[ints.length];
+        for (int i = 0; i < ints.length; i++) {
+            result[i] = execute(ints[i], decorator);
+        }
+        return result;
+    }
+
+    public String[] execute(int[] ints) {
+        return execute(ints, "");
+    }
+
+    public String execute(int value, String decorator) {
         String res = "";
-        if (isMultipleOf(i, 3)){
+        if (isMultipleOf(value, 3)){
             res += FIZZ;
         }
-        if (isMultipleOf(i, 5)) {
+        if (isMultipleOf(value, 5)) {
             res += BUZZ;
         }
-        return (i==0 || res.equals("")) ? String.valueOf(i) : res;
+        if (value == 0 || res.equals("")) {
+            return decorator + value + decorator;
+        } else {
+            return res;
+        }
+
     }
 
     private boolean isMultipleOf(int i, int modulo) {
