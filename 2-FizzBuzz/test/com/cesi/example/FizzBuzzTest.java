@@ -1,5 +1,6 @@
 package com.cesi.example;
 
+import com.sun.deploy.util.StringUtils;
 import org.hamcrest.Matcher;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,6 +36,12 @@ public class FizzBuzzTest {
     }
 
     @Test
+    public void should_decorate_basic_input_with_decorator() {
+        String result = fizzBuzz.execute(1, new WithSlash());
+        Assert.assertThat(result, is("/1/"));
+    }
+
+    @Test
     public void should_call_with_array() {
         String[] result = fizzBuzz.execute(new int[]{1,2,3,4,5,6});
         Assert.assertThat(result[0], is("1"));
@@ -43,6 +50,22 @@ public class FizzBuzzTest {
         Assert.assertThat(result[3], is("4"));
         Assert.assertThat(result[4], is("Buzz"));
         Assert.assertThat(result[5], is("Fizz"));
+    }
+
+    public class WithSlash implements Decorator {
+
+        @Override
+        public String apply(String value) {
+            return "/" + value + "/";
+        }
+    }
+
+    public class UpperCase implements Decorator {
+
+        @Override
+        public String apply(String value) {
+            return value.toUpperCase();
+        }
     }
 
     @Test

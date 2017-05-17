@@ -45,4 +45,7 @@ public class FizzBuzz {
         return i% modulo == 0;
     }
 
+    public String execute(int i, Decorator decorator) {
+        return decorator.apply(execute(i));
+    }
 }

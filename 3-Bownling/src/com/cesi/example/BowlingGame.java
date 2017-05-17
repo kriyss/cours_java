@@ -1,8 +1,5 @@
 package com.cesi.example;
 
-/**
- * Created by kriyss on 11/05/17.
- */
 public class BowlingGame implements Game {
 
     private int[] pinsDown = new int[21];
