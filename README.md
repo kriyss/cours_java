@@ -26,3 +26,7 @@ ctrl + alt + n : inline une variable/methode
 
 Permet d'organiser des fichiers
 
+### Liens utiles
+
+- [mkyong](http://www.mkyong.com/) : quick start
+- [jmdoudou](https://www.jmdoudoux.fr/accueil_java.htm#dej) : la bible
