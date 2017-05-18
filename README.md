@@ -30,3 +30,17 @@ Permet d'organiser des fichiers
 
 - [mkyong](http://www.mkyong.com/) : quick start
 - [jmdoudou](https://www.jmdoudoux.fr/accueil_java.htm#dej) : la bible
+
+
+### Books
+
+- Clean Code : Robert C Martin alias uncle bob
+- Extrem programming Kent beck
+- TTD Explained Kent beck
+- Refactoring : Martin Fawler
+- Design Pattern : GOF
+
+
+
+
+
