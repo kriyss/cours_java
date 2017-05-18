@@ -41,6 +41,11 @@ Permet d'organiser des fichiers
 - Design Pattern : GOF
 
 
+### Mon mail
+
+kriyssou@gmail.com
+
+
 
 
 
