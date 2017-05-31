@@ -17,7 +17,7 @@ public abstract class AbstractScene {
     protected final String TITLE;
     protected final Stage stage;
     protected final FXMLLoader loader;
-    private Scene scene;
+//    private Scene scene;
     private javafx.scene.Parent rootNode;
 
     protected AbstractScene(Stage stage, String scenePath, String title) {
@@ -28,6 +28,7 @@ public abstract class AbstractScene {
 
         try {
             rootNode = loader.load(getClass().getResourceAsStream(PATH));
+            this.getController().setStage(stage);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,7 +36,7 @@ public abstract class AbstractScene {
 
     public void show() {
         LOG.debug("Showing JFX scenes");
-        scene = new Scene(rootNode, 800, 600);
+        Scene scene = new Scene(rootNode, 800, 600);
         stage.setTitle(TITLE);
         stage.setScene(scene);
         stage.show();

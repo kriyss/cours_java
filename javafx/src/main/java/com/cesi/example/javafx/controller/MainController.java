@@ -29,6 +29,7 @@ public class MainController implements Initializable, Controller {
     private TableColumn<Student, String> firstNameCol;
     @FXML
     private TableColumn<Student, Button> actionCol;
+    private Stage stage;
 
     public MainController() {
         this.studentRepo = new EleveRepository();
@@ -61,8 +62,9 @@ public class MainController implements Initializable, Controller {
                     btn.setOnAction(event -> {
                         Student student = getTableView().getItems().get(getIndex());
                         System.out.println(student.getFirstName() + "   " + student.getId());
-                        EleveAddScene scene = new EleveAddScene((Stage) this.getScene().getWindow());
+                        EleveAddScene scene = new EleveAddScene(stage);
                         scene.getController().setData(student);
+                        scene.getController().setStage(stage);
                         scene.show();
                     });
                     setGraphic(btn);
@@ -76,5 +78,10 @@ public class MainController implements Initializable, Controller {
     @Override
     public void setData(Object o) {
 
+    }
+
+    @Override
+    public void setStage(Stage stage) {
+        this.stage = stage;
     }
 }
